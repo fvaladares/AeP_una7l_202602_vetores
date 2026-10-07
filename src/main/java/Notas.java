@@ -6,6 +6,10 @@ public class Notas {
         int n = 5; // tamanho do vetor
         int[] notas; // *Declaração* do vetor
         notas = new int[n]; // Inicialização do vetor
+        double media = 0;
+        int maiorNota;
+        int menorNota;
+        int acumuladorDeNotas = 0;
 
         System.out.println(".:Sistema de notas:.");
 
@@ -22,6 +26,43 @@ public class Notas {
         for (int i = 0; i < notas.length; i++) {
             System.out.printf("\nNota %d: %d", (i + 1), notas[i]);
         }
+        System.out.println();
+
+        // Estrutura de repetição utilizada para
+        // acumular os valores das notas
+        for (int i = 0; i < notas.length; i++) {
+            acumuladorDeNotas = acumuladorDeNotas + notas[i]; //media += notas[i];
+        }
+        // Calculando a média das notas;
+        media = media / notas.length;
+
+        System.out.printf("Média das notas: %.2f\n", media);
+
+        System.out.println("Notas acima da média: ");
+        for (int nota : notas) {
+            if (nota > media) {
+                System.out.print(nota + ", ");
+            }
+        }
+
+        System.out.println("\nNotas abaixo da média: ");
+        for (int nota : notas) {
+            if (nota < media) {
+                System.out.print(nota + ", ");
+            }
+        }
+
+        maiorNota = menorNota = notas[0];
+        for (int i = 1; i < notas.length; i++) {
+            if(notas[i] > maiorNota)
+                maiorNota = notas[i];
+            else if(notas[i] < menorNota)
+                menorNota = notas[i];
+        }
+
+        System.out.println();
+        System.out.printf("Maior nota: %d\n", maiorNota);
+        System.out.printf("Menor nota: %d", menorNota);
         System.out.println();
     }
 }
