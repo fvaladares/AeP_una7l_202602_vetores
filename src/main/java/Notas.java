@@ -18,6 +18,10 @@ public class Notas {
             System.out.print("\nInforme a nota " +
                     (i + 1) + ": ");
             notas[i] = entrada.nextInt();
+            if (notas[i] <= 0 || notas[i] >= 20) {
+                System.out.println("A nota deve estar entre 0 e 20 pontos;");
+                i--;
+            }
         }
 
         System.out.println();
@@ -39,24 +43,27 @@ public class Notas {
         System.out.printf("Média das notas: %.2f\n", media);
 
         System.out.println("Notas acima da média: ");
-        for (int nota : notas) {
+        for (int i = 0; i < notas.length; i++) {
+            int nota = notas[i];
             if (nota > media) {
                 System.out.print(nota + ", ");
             }
         }
 
         System.out.println("\nNotas abaixo da média: ");
-        for (int nota : notas) {
+        for (int i = 0; i < notas.length; i++) {
+            int nota = notas[i];
             if (nota < media) {
                 System.out.print(nota + ", ");
             }
         }
 
         maiorNota = menorNota = notas[0];
+
         for (int i = 1; i < notas.length; i++) {
-            if(notas[i] > maiorNota)
+            if (notas[i] > maiorNota)
                 maiorNota = notas[i];
-            else if(notas[i] < menorNota)
+            else if (notas[i] < menorNota)
                 menorNota = notas[i];
         }
 
