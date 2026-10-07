@@ -18,7 +18,7 @@ public class Notas {
             System.out.print("\nInforme a nota " +
                     (i + 1) + ": ");
             notas[i] = entrada.nextInt();
-            if (notas[i] <= 0 || notas[i] >= 20) {
+            if (notas[i] < 0 || notas[i] > 20) {
                 System.out.println("A nota deve estar entre 0 e 20 pontos;");
                 i--;
             }
